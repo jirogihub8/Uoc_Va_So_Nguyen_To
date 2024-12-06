@@ -1,5 +1,4 @@
 #sang uoc
-
 def sanguoc(x):
     #sum of divisors
     c=[1]*(x+3)
