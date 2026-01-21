@@ -1,12 +1,17 @@
-#Gcd các số từ x đến x+n-1
 def sub4(x, n):
-    # Tính tổng các ước cho các số từ x đến x + n - 1
-    result = [0] * n
-    for i in range(1, int((x + n - 1) ** 0.5) + 1):
-        for j in range(max((x // i) * i, i * i), x + n, i):
-            if j >= x:
-                result[j - x] += i
-                if j // i != i:
-                    result[j - x] += j // i
-    return result
-print(sub4(4,6))
+    res = [0] * n
+    R =  x + n- 1
+
+    for i in range(1, int(R**0.5) + 1):
+        start = ((x + i - 1) // i) * i
+        for j in range(start, R+1, i):
+            if j < i * i:
+                continue
+
+            if i != j:
+                res[j - x] += i
+            d = j // i
+            if d != i and d != j:
+                res[j - x] += d
+
+    return res
